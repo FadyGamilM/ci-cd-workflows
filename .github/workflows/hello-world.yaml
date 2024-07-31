@@ -1,0 +1,30 @@
+# give the workflow a name 
+name: Hello world workflow
+
+# dfeine the evnets this workflow will be triggered on 
+on:
+  push: # whenever we push to these branches we want this workflow to be triggered 
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main 
+  # for ui to have a button to run the workflow without having to push 
+  workflow_dispatch:
+    
+    
+jobs:
+  hello: # name of the job
+    runs-on: ubuntu-latest # the runner type to run this job 
+    steps:
+      - uses: actions/checkout@v2 # this action is created by github themself [owner/repoName]  
+      - name: hello world
+        run: echo "hello world action"
+        shell: bash
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world 
+        run: echo "goodbye world action"
+        shell: bash
