@@ -6,6 +6,7 @@ on:
   push: # whenever we push to these branches we want this workflow to be triggered 
     branches: 
       - main
+      - master
   pull_request:
     branches:
       - main 
@@ -13,6 +14,7 @@ on:
   workflow_dispatch:
     
     
+# Jobs can run in parallel but the steps within the job must run in sequence 
 jobs:
   hello: # name of the job
     runs-on: ubuntu-latest # the runner type to run this job 
