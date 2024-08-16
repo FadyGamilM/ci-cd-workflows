@@ -4,7 +4,8 @@ on:
     - main
   pull_request:
     - main 
-
+trigger:
+  - workflow_dispatch
 jobs:
   lint:
     runs-on: ubuntu-latest
