@@ -45,8 +45,11 @@ jobs:
         run: go version
       - name: Verify Go Installation Files
         run: |
+          echo "Searching for ';' in log.go"
           grep -n ';' $(go env GOROOT)/src/log/log.go
-          grep -n '[' $(go env GOROOT)/src/log/log.go
+
+          echo "Searching for '[' in log.go"
+          grep -n '\[' $(go env GOROOT)/src/log/log.go
       # Start linting
       - name: linter
         run: |
