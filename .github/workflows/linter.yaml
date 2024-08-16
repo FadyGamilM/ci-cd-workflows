@@ -1,23 +1,24 @@
 name: workflow
 on:
   push:
-    - main
+    branches:
+      - main
   pull_request:
-    - main 
+    branches:
+      - main 
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      # setup the environment 
+      # Setup the environment
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with:
           stable: 'false'
           go-version: '1.21.7'
-      # start linting
+      # Start linting
       - name: linter
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.26.0
-
-          golangci-lint run      
+          golangci-lint run
