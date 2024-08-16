@@ -2,11 +2,10 @@ name: linter workflow
 on:
   push:
     - main
-    - master
   pull_request:
     - main 
-    - master
-  
+  # for ui to have a button to run the workflow without having to push 
+  workflow_dispatch:
 jobs:
   lint:
     runs-on: ubuntu-latest
