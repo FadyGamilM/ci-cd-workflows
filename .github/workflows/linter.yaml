@@ -4,8 +4,7 @@ on:
     - main
   pull_request:
     - main 
-  # for ui to have a button to run the workflow without having to push 
-  workflow_dispatch:
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -22,7 +21,7 @@ jobs:
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.26.0
 
           golangci-lint run      
-            
+
   hello: # name of the job
     runs-on: ubuntu-latest # the runner type to run this job 
     steps:
